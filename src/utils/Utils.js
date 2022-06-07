@@ -31,7 +31,8 @@ function sha256(bytes) {
  */
 function toNano(amount) {
     if (!BN.isBN(amount) && !(typeof amount === 'string')) {
-        throw new Error('Please pass numbers as strings or BN objects to avoid precision errors.');
+        amount = amount.toString();
+        console.warn('Numbers are deprecated. Please pass numbers as strings or BN objects to avoid precision errors.');
     }
 
     return ethunit.toWei(amount, 'gwei');
@@ -44,7 +45,8 @@ function toNano(amount) {
  */
 function fromNano(amount) {
     if (!BN.isBN(amount) && !(typeof amount === 'string')) {
-        throw new Error('Please pass numbers as strings or BN objects to avoid precision errors.');
+        amount = amount.toString();
+        console.warn('Numbers are deprecated. Please pass numbers as strings or BN objects to avoid precision errors.');
     }
 
     return ethunit.fromWei(amount, 'gwei');
